@@ -1,5 +1,8 @@
-com/clyde/uber/db/repositories/PaymentInfoRepository.class
+com/clyde/uber/db/dto/PaymentInfoDTO.class
 com/clyde/uber/db/exceptions/NotFoundException.class
 com/clyde/uber/db/entities/UberEntity.class
 com/clyde/uber/db/PaymentApplication.class
+com/clyde/uber/db/controllers/PaymentInfoController.class
+com/clyde/uber/db/repositories/PaymentInfoRepository.class
+com/clyde/uber/db/services/PaymentInfoService.class
 com/clyde/uber/db/entities/PaymentInfo.class

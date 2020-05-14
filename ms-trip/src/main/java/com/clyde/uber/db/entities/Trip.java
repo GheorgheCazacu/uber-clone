@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-public class PaymentInfo extends UberEntity{
-    private double price;
-    private LocalDateTime start;
-    private LocalDateTime end;
-    private Long tripId;
+public class Trip extends UberEntity {
+    private String start;
+    private String end;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private Long driverId;
 }

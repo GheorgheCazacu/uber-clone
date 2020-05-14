@@ -1,6 +1,5 @@
 package com.clyde.uber.db.controllers;
 
-import com.clyde.uber.db.repositories.TripRepository;
 import com.clyde.uber.db.services.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

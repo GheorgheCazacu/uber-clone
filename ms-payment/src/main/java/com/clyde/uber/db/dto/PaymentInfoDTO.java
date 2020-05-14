@@ -1,15 +1,16 @@
-package com.clyde.uber.db.entities;
+package com.clyde.uber.db.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Entity
-public class PaymentInfo extends UberEntity{
+@NoArgsConstructor
+public class PaymentInfoDTO {
+    private Long id;
     private double price;
     private LocalDateTime start;
     private LocalDateTime end;

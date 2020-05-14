@@ -22,7 +22,7 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>payment-service</module>
+        <module>payment-server</module>
         <module>ms-driver</module>
         <module>ms-vehicle</module>
         <module>ms-trip</module>
