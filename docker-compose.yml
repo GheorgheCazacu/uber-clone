@@ -1,0 +1,61 @@
+version: '2.1'
+
+services:
+
+  mysql_uber:
+    build: mysql-docker
+    mem_limit: 512m
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root --execute \"SHOW DATABASES;\""
+      interval: 20s
+      timeout: 5s
+      retries: 10
+
+  ms_driver:
+    build: ms-driver
+#    image: uber-ms-driver:1.0
+    mem_limit: 512m
+    ports:
+      - "5151:5151"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      mysql_uber:
+        condition: service_healthy
+
+  ms_payment:
+    build: ms-payment
+    mem_limit: 512m
+    ports:
+      - "6161:6161"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      mysql_uber:
+        condition: service_healthy
+
+  ms_trip:
+    build: ms-trip
+    mem_limit: 512m
+    ports:
+      - "7171:7171"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      mysql_uber:
+        condition: service_healthy
+
+  ms_vehicle:
+    build: ms-vehicle
+    mem_limit: 512m
+    ports:
+      - "8181:8181"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      mysql_uber:
+        condition: service_healthy
