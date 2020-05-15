@@ -1,0 +1,19 @@
+spring.profiles: docker
+
+spring.application.name: ${springboot.app.name:mseurekaserver}
+
+server.port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://mseurekaserver:8761/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 10000
+    response-cache-update-interval-ms: 5000
+management.endpoints.web.exposure.include: "*"
