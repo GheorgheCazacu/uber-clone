@@ -10,14 +10,24 @@
         <version>2.2.0.RELEASE</version>
     </parent>
 
-    <groupId>com.clyde</groupId>
+    <groupId>com.clyde.uber</groupId>
     <artifactId>uber-clone</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <api-model.version>1.0-SNAPSHOT</api-model.version>
+
         <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
+        <lombok.verion>1.18.12</lombok.verion>
+        <modelmapper.verion>2.3.7</modelmapper.verion>
+<!--        <spring-cloud.version>Hoxton.SR4</spring-cloud.version>-->
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+
     </properties>
 
     <packaging>pom</packaging>
@@ -28,9 +38,18 @@
         <module>ms-trip</module>
         <module>mysql-docker</module>
         <module>ms-payment</module>
+        <module>api-model</module>
+        <module>ms-eureka-server</module>
     </modules>
 
     <dependencies>
+        <dependency>
+            <groupId>com.clyde.uber</groupId>
+            <artifactId>api-model</artifactId>
+            <version>${api-model.version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -40,14 +59,25 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>com.clyde.uber</groupId>
+                <artifactId>api-model</artifactId>
+                <version>${api-model.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.12</version>
+                <version>${lombok.verion}</version>
             </dependency>
 
             <dependency>
@@ -62,9 +92,18 @@
             </dependency>
 
             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
                 <groupId>org.modelmapper</groupId>
                 <artifactId>modelmapper</artifactId>
-                <version>2.3.7</version>
+                <version>${modelmapper.verion}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

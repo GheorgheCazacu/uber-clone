@@ -1,7 +1,7 @@
 package com.clyde.uber.db.services;
 
-import com.clyde.uber.db.dto.PaymentInfoDTO;
-import com.clyde.uber.db.entities.PaymentInfo;
+import com.clyde.uber.api.model.core.PaymentInfo;
+import com.clyde.uber.db.entities.PaymentInfoEntity;
 import com.clyde.uber.db.repositories.PaymentInfoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +22,15 @@ public class PaymentInfoService {
         this.paymentInfoRepository = paymentInfoRepository;
     }
 
-    public Set<PaymentInfoDTO> getPaymentsForTrip(Long tripId) {
+    public Set<PaymentInfo> getPaymentsForTrip(Long tripId) {
 
-        Set<PaymentInfo> result = paymentInfoRepository.findByTripId(tripId);
+        Set<PaymentInfoEntity> result = paymentInfoRepository.findByTripId(tripId);
         return mappToDTO(result);
     }
 
-    public Set<PaymentInfoDTO> getPaymentsForDriver(Long driverId) {
+    public Set<PaymentInfo> getPaymentsForDriver(Long driverId) {
 
-        Set<PaymentInfo> result = paymentInfoRepository.findByDriverId(driverId);
+        Set<PaymentInfoEntity> result = paymentInfoRepository.findByDriverId(driverId);
         return mappToDTO(result);
     }
 
@@ -39,10 +39,10 @@ public class PaymentInfoService {
         return (result.isPresent() ? 0.0d : result.get());
     }
 
-    private Set<PaymentInfoDTO> mappToDTO(Set<PaymentInfo> infos) {
+    private Set<PaymentInfo> mappToDTO(Set<PaymentInfoEntity> infos) {
         return infos
                 .stream()
-                .map(paymentInfo -> modelMapper.map(paymentInfo, PaymentInfoDTO.class))
+                .map(paymentInfoEntity -> modelMapper.map(paymentInfoEntity, PaymentInfo.class))
                 .collect(Collectors.toSet());
     }
 
