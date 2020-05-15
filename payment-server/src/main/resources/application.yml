@@ -1,0 +1,11 @@
+spring.profiles: dev
+
+spring:
+  jpa.hibernate.ddl-auto: none
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/uber_payment_server
+  username: root
+  password: root
+
+server:
+  port: 9090
