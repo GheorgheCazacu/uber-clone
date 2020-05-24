@@ -1,0 +1,26 @@
+spring:
+  profiles: docker
+  application.name: ${springboot.app.name:ms-driver}
+  jpa.hibernate.ddl-auto: none
+  datasource:
+    url: jdbc:mysql://localhost:3306/uber_driver
+    username: root
+    password: root
+
+server:
+  port: 5151
+  ribbon:
+    eureka.enabled: true
+    ServerListRefreshInterval: 1000
+
+eureka:
+  client:
+    serviceUrl.defaultZone: http://mseurekaserver:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: false
+    healthcheck.enabled: true
+    instance:
+      leaseRenewalIntervalInSeconds: 5
+      leaseExpirationDurationInSeconds: 10
+#disable the spring security on the management endpoints like /env, /refresh etc.
+management.security.enabled: false

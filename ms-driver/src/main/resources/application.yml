@@ -1,0 +1,30 @@
+spring:
+  profiles: dev
+  application.name: ${springboot.app.name:ms-driver}
+  jpa.hibernate.ddl-auto: none
+  datasource:
+    url: jdbc:mysql://localhost:3306/uber_driver
+    username: root
+    password: root
+
+server:
+  port: 5151
+  ribbon:
+    eureka.enabled: true
+    ServerListRefreshInterval: 1000
+
+eureka:
+  instance:
+    hostname: ${springboot.app.name:eureka-serviceregistry}
+    virtualHostName: ${spring.application.name}
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+  server:
+    port: 8761
+  client:
+    serviceUrl.defaultZone: http://${eureka.instance.hostname}:${eureka.server.port}/eureka/
+    registerWithEureka: true
+    fetchRegistry: false
+    healthcheck.enabled: true
+
+

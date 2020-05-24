@@ -27,7 +27,7 @@
         <modelmapper.verion>2.3.7</modelmapper.verion>
 <!--        <spring-cloud.version>Hoxton.SR4</spring-cloud.version>-->
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
-
+        <h2.version>1.4.200</h2.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -57,7 +57,14 @@
     </dependencies>
 
     <dependencyManagement>
+
         <dependencies>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.clyde.uber</groupId>
                 <artifactId>api-model</artifactId>
