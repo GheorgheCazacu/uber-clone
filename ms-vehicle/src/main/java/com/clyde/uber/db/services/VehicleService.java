@@ -48,7 +48,7 @@ public class VehicleService {
         if(!vehicle.isPresent()) {
             throw new NotFoundException("vehicle not found for id: " + id);
         }
-        return modelMapper.map(vehicle, Vehicle.class);
+        return modelMapper.map(vehicle.get(), Vehicle.class);
     }
 
 }

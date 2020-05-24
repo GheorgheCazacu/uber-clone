@@ -1,5 +1,5 @@
 spring:
-  profiles: dev
+  profiles: test
   jpa.hibernate.ddl-auto: none
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/uber_vehicle

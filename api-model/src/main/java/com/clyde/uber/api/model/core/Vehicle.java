@@ -15,4 +15,7 @@ public class Vehicle {
     private String color;
     private String registrationNumber;
     private LocalDateTime registerTimestamp;
+    private String active;
+    private Long driverId;
+
 }
