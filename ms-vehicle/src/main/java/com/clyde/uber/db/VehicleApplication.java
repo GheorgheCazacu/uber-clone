@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "com.clyde.uber.db")
 @ComponentScan("com.clyde.uber.db")
 @Configuration
-@PropertySource("classpath:application.properties")
 @SpringBootApplication
 @EnableEurekaClient
 @RibbonClient(name = "vehicle", configuration = RibbonConfiguration.class)

@@ -1,14 +1,14 @@
 spring:
   profiles: docker
-  application.name: ${springboot.app.name:ms-driver}
+  application.name: ${springboot.app.name:ms-trip}
   jpa.hibernate.ddl-auto: none
   datasource:
-    url: jdbc:mysql://localhost:3306/uber_driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/uber_trip
     username: root
     password: root
 
 server:
-  port: 5151
+  port: 7171
   ribbon:
     eureka.enabled: true
     ServerListRefreshInterval: 1000
@@ -25,3 +25,4 @@ eureka:
 
 #disable the spring security on the management endpoints like /env, /refresh etc.
 management.security.enabled: false
+

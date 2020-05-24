@@ -1,14 +1,14 @@
 spring:
+  application.name: ${springboot.app.name:ms-payment}
   profiles: docker
-  application.name: ${springboot.app.name:ms-driver}
   jpa.hibernate.ddl-auto: none
   datasource:
-    url: jdbc:mysql://localhost:3306/uber_driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/uber_payment
     username: root
     password: root
 
 server:
-  port: 5151
+  port: 6161
   ribbon:
     eureka.enabled: true
     ServerListRefreshInterval: 1000

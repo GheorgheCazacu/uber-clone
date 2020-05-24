@@ -1,0 +1,10 @@
+spring:
+  profiles: dev
+  jpa.hibernate.ddl-auto: none
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/uber_trip
+    username: root
+    password: root
+
+server:
+  port: 7171
