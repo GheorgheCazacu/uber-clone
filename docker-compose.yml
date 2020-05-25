@@ -32,6 +32,7 @@ services:
       - "5151:5151"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - MYSQL_HOST=mysql_uber
     depends_on:
       mseurekaserver:
         condition: service_started
@@ -45,6 +46,7 @@ services:
       - "6161:6161"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - MYSQL_HOST=mysql_uber
     depends_on:
       mseurekaserver:
         condition: service_started
@@ -58,6 +60,7 @@ services:
       - "7171:7171"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - MYSQL_HOST=mysql_uber
     depends_on:
       mseurekaserver:
         condition: service_started
@@ -71,6 +74,7 @@ services:
       - "8181:8181"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - MYSQL_HOST=mysql_uber
     depends_on:
       mseurekaserver:
         condition: service_started
