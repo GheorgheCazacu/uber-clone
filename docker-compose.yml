@@ -23,13 +23,29 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
 
-
-  ms_driver:
+  ms_driver_1:
+    container_name: ms_driver_1
     build: ms-driver
 #    image: uber-ms-driver:1.0
     mem_limit: 512m
     ports:
       - "5151:5151"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - MYSQL_HOST=mysql_uber
+    depends_on:
+      mseurekaserver:
+        condition: service_started
+      mysql_uber:
+        condition: service_healthy
+
+  ms_driver_2:
+    container_name: ms_driver_2
+    build: ms-driver
+    #    image: uber-ms-driver:1.0
+    mem_limit: 512m
+    ports:
+      - "9191:5151"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - MYSQL_HOST=mysql_uber
